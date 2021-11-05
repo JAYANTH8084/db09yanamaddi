@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Try the best
+  button(type='button', class="btn btn-success",onclick="update()") Press Me
+
+  div(id = "target") Display
+
+  script.
+      out = document.getElementById("target");
+      var client_count = 0;
+      function update(){
+        client_count = client_count + 1;
+        out.innerHTML = "Value now " + client_count;
+      }
+      a(href='ball')ball

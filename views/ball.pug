@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= title
+  br
+  - var results = [{color: "white",price: 7.8,weigth:20},{color: "yellow",price: 10.0,weigth:55.7},{color: "blue",price: 8.9,weigth: 43}];
+   div(class = "container-fluid")
+    div(class = "row")
+     each i,index in results
+        div(class="col-sm-4" onclick=`buy(${index})`) color: #{i.color} 
+        br
+        br 
+        div(class="col-sm-4" onclick=`buy(${index})`) price: #{i.price}
+        br
+        br  
+        div(class="col-sm-4" onclick=`buy(${index})`) weigth: #{i.weigth}
+        script.
+                function buy(itemNo){
+                    alert(`You purchased item ${itemNo+1}`)
+                }
