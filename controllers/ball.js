@@ -3,8 +3,8 @@ var ball = require('../models/ball');
 // List of all ball
 exports.ball_list = async function (req, res) {
     try {
-        theball = await ball.find();
-        res.send(theball);
+        let balls = await ball.find();
+        res.send(balls);
     }
     catch (err) {
         res.status(500);

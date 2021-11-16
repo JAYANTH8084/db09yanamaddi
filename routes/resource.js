@@ -8,13 +8,13 @@ var ball_controller = require('../controllers/ball');
 router.get('/', api_controller.api);
 /// ball ROUTES ///
 // POST request for creating a ball.
-router.post('/ball', ball_controller.ball_create_post);
+router.post('/balls', ball_controller.ball_create_post);
 // DELETE request to delete ball.
-router.delete('/ball/:id', ball_controller.ball_delete);
+router.delete('/balls/:id', ball_controller.ball_delete);
 // PUT request to update ball.
-router.put('/ball/:id', ball_controller.ball_update_put);
+router.put('/balls/:id', ball_controller.ball_update_put);
 // GET request for one ball.
-router.get('/ball/:id', ball_controller.ball_detail);
+router.get('/balls/:id', ball_controller.ball_detail);
 // GET request for list of all ball items.
-router.get('/ball', ball_controller.ball_list);
+router.get('/balls', ball_controller.ball_list);
 module.exports = router;

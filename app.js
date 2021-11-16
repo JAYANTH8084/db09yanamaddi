@@ -19,7 +19,10 @@ var resourceRouter = require('./routes/resource');
 
 // We can seed the collection if needed on server start
 async function recreateDB(){
+
   // Delete everything await weightume.deleteMany();
+  await ball.deleteMany(); 
+
   let instance1 = new ball({color:"white", price:7, weight:20});
   instance1.save( function(err,doc) {
   if(err) return console.error(err);
