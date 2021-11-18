@@ -1,0 +1,24 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  if (toShow == null) 
+    h2 No instance to provide details 
+  else
+    - let ballid = toShow._id 
+    - let ball_color = toShow.color 
+    - let ballweight = toShow.weight 
+    - let ballprice = toShow.price 
+    div 
+      div.row 
+        div(class='ballAttr mr-8') ball ID is: #{ballid}
+      <br/>
+      div.row 
+        div(class='ballAttr mr-3') ball color is:#{ball_color} 
+      <br/>
+      div.row 
+        div(class='ballAttr mr-3') ball price is:#{ballprice} 
+      <br/>
+      div.row 
+        div(class='ballAttr mr-3') ball weight is: #{ballweight}

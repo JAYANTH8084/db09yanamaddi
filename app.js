@@ -61,7 +61,7 @@ app.use('/ball', ballRouter);
 app.use('/addmods', addmodsRouter);
 app.use('/selector', selectorRouter);
 app.use('/resource', resourceRouter);
-
+app.use('/balls', resourceRouter);
 
 
 // catch 404 and forward to error handler
