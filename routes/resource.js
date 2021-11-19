@@ -6,6 +6,8 @@ var ball_controller = require('../controllers/ball');
 var ball_controlers = require('../controllers/ball');
 
 /// API ROUTE ///
+/* GET balls */ 
+router.get('/', ball_controlers.ball_view_all_Page ); 
 // GET resources base.
 router.get('/', api_controller.api);
 /// ball ROUTES ///
@@ -20,8 +22,7 @@ router.get('/balls/:id', ball_controller.ball_detail);
 // GET request for list of all ball items.
 router.get('/balls', ball_controller.ball_list);
 
-/* GET balls */ 
-router.get('/', ball_controlers.ball_view_all_Page ); 
+
 
 /* GET detail ball page */ 
 router.get('/detail', ball_controlers.ball_view_one_Page); 

@@ -2,6 +2,18 @@ extends layout
 
 block content
   h1= title
+  - let items= results;
+  div(class="container-fluid") 
+    div(class="row m-1") 
+      each item in items  
+        - let destination = `dispatch(\"/balls/update?id=${item._id}\")` 
+        div(class="row-sm-2", class="m-1") Item #{item.color}(#{item.price}) is #{item.weight} 
+          button.btn( class="btn-primary ml-1", onclick= destination) Update 
+   
+  script. 
+    function dispatch(path){ 
+      window.location.href=path 
+    } 
   br
   - var results1 = [{color:"white", price:7, weight:20},{color:"yellow", price:10, weight:55.7},{color:"blue", price:8, weight:43}];
 
