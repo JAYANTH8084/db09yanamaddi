@@ -5,11 +5,11 @@ block content
  
   form(id='ballForm', action="/resource/balls", method="POST") 
     div.form-group 
-        label.ballAttr(for='ball_color') ball color 
-        input#ball_color(type='text', name='ball_color') 
+        label.ballAttr(for='color') ball color 
+        input#color(type='text', name='color') 
     div.form-group 
         label.ballAttr(for='price') ball price 
-        input#price(type='text', name='price') 
+        input#price(type='number', name='price') 
     div.form-group 
         label.ballAttr(for='weight') ball weight 
         input#weight(type='number', name='weight') 
