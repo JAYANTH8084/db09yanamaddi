@@ -1,18 +1,32 @@
-extends layout
+//- extends layout
 
-block content
-  h1= title
-  p Try the best
-  button(type='button', class="btn btn-success",onclick="update()") Press Me
+//- block content
+//-   h1= title
+//-  p Try the best
+//-  button(type='button', class="btn btn-success",onclick="update()") Press Me
 
-  div(id = "target") Display
+//-  div(id = "target") Display
 
-  script.
-      out = document.getElementById("target");
-      var client_count = 0;
-      function update(){
-        client_count = client_count + 1;
-        out.innerHTML = "Value now " + client_count;
-      }
-  br   
-  a(href='ball') Click this for ball
+//-  script.
+//-      out = document.getElementById("target");
+//-      var client_count = 0;
+//-      function update(){
+//-        client_count = client_count + 1;
+//-        out.innerHTML = "Value now " + client_count;
+//-      }
+//-  br   
+//-  a(href='ball') Click this for ball
+
+
+extends layout 
+ 
+block content 
+  if (!user) 
+    a(href="/login") Login 
+    br 
+    a(href="/register") Register 
+  if (user) 
+    p You are currently logged in as #{user.username} 
+    a(href="/balls") Take me to balls 
+    br 
+    a(href="/logout") Logout 

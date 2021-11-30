@@ -55,16 +55,14 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(require('express-session')({ 
+  secret: 'keyboard cat', 
+  resave: false, 
+  saveUninitialized: false 
+})); 
+app.use(passport.initialize()); 
+app.use(passport.session()); 
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/ball', ballRouter);
-app.use('/addmods', addmodsRouter);
-app.use('/selector', selectorRouter);
-app.use('/resource', resourceRouter);
-app.use('/balls', resourceRouter);
-
 passport.use(new LocalStrategy( 
   function(username, password, done) { 
     Account.findOne({ username: username }, function (err, user) { 
@@ -78,28 +76,22 @@ passport.use(new LocalStrategy(
       return done(null, user); 
     }); 
   } ))
-  app.use(require('express-session')({ 
-    secret: 'keyboard cat', 
-    resave: false, 
-    saveUninitialized: false 
-  })); 
-  app.use(passport.initialize()); 
-  app.use(passport.session()); 
-  app.use(require('express-session')({ 
-  secret: 'keyboard cat', 
-  resave: false, 
-  saveUninitialized: false 
-})); 
-app.use(passport.initialize()); 
-app.use(passport.session()); 
 // passport config 
 // Use the existing connection 
 // The Account model  
 var Account =require('./models/account'); 
- 
 passport.use(new LocalStrategy(Account.authenticate())); 
 passport.serializeUser(Account.serializeUser()); 
 passport.deserializeUser(Account.deserializeUser()); 
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/ball', ballRouter);
+app.use('/addmods', addmodsRouter);
+app.use('/selector', selectorRouter);
+app.use('/resource', resourceRouter);
+app.use('/balls', resourceRouter);
+
 
 
 // catch 404 and forward to error handler
