@@ -24,12 +24,6 @@ exports.ball_view_all_Page = async function (req, res) {
         res.status(500);
     }
 };
-
- 
-// for a specific ball. 
-exports.ball_detail = function(req, res) { 
-    res.send('NOT IMPLEMENTED: ball detail: ' + req.params.id); 
-}; 
  
 // Handle ball create on POST. 
 exports.ball_create_post = async function (req, res) {
@@ -98,9 +92,9 @@ exports.ball_create_post = async function(req, res) {
     // Even though bodies can be in many different formats, we will be picky 
     // and require that it be a json object 
     // {"ball_type":"goat", "cost":12, "size":"large"} 
-    document.ball_type = req.body.ball_type; 
-    document.cost = req.body.cost; 
-    document.size = req.body.size; 
+    document.color = req.body.color; 
+    document.price = req.body.price; 
+    document.weight = req.body.weight; 
     try{ 
         let result = await document.save(); 
         res.send(result); 
